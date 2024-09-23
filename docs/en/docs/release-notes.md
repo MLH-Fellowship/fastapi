@@ -7,6 +7,149 @@ hide:
 
 ## Latest Changes
 
+### Docs
+
+* 📝 Fix small typos in the documentation. PR [#12213](https://github.com/fastapi/fastapi/pull/12213) by [@svlandeg](https://github.com/svlandeg).
+
+### Translations
+
+* 🌐 Add Portuguese translation for `docs/pt/docs/deployment/cloud.md`. PR [#12217](https://github.com/fastapi/fastapi/pull/12217) by [@marcelomarkus](https://github.com/marcelomarkus).
+* ✏️ Fix typo in `docs/es/docs/python-types.md`. PR [#12235](https://github.com/fastapi/fastapi/pull/12235) by [@JavierSanchezCastro](https://github.com/JavierSanchezCastro).
+* 🌐 Add Dutch translation for `docs/nl/docs/environment-variables.md`. PR [#12200](https://github.com/fastapi/fastapi/pull/12200) by [@maxscheijen](https://github.com/maxscheijen).
+* 🌐 Add Portuguese translation for `docs/pt/docs/deployment/manually.md`. PR [#12210](https://github.com/fastapi/fastapi/pull/12210) by [@JoaoGustavoRogel](https://github.com/JoaoGustavoRogel).
+* 🌐 Add Portuguese translation for `docs/pt/docs/deployment/server-workers.md`. PR [#12220](https://github.com/fastapi/fastapi/pull/12220) by [@marcelomarkus](https://github.com/marcelomarkus).
+* 🌐 Add Portuguese translation for `docs/pt/docs/how-to/configure-swagger-ui.md`. PR [#12222](https://github.com/fastapi/fastapi/pull/12222) by [@marcelomarkus](https://github.com/marcelomarkus).
+
+### Internal
+
+* ✏️ Fix docstring typos in http security. PR [#12223](https://github.com/fastapi/fastapi/pull/12223) by [@albertvillanova](https://github.com/albertvillanova).
+
+## 0.115.0
+
+### Highlights
+
+Now you can declare `Query`, `Header`, and `Cookie` parameters with Pydantic models. 🎉
+
+#### `Query` Parameter Models
+
+Use Pydantic models for `Query` parameters:
+
+```python
+from typing import Annotated, Literal
+
+from fastapi import FastAPI, Query
+from pydantic import BaseModel, Field
+
+app = FastAPI()
+
+
+class FilterParams(BaseModel):
+    limit: int = Field(100, gt=0, le=100)
+    offset: int = Field(0, ge=0)
+    order_by: Literal["created_at", "updated_at"] = "created_at"
+    tags: list[str] = []
+
+
+@app.get("/items/")
+async def read_items(filter_query: Annotated[FilterParams, Query()]):
+    return filter_query
+```
+
+Read the new docs: [Query Parameter Models](https://fastapi.tiangolo.com/tutorial/query-param-models/).
+
+#### `Header` Parameter Models
+
+Use Pydantic models for `Header` parameters:
+
+```python
+from typing import Annotated
+
+from fastapi import FastAPI, Header
+from pydantic import BaseModel
+
+app = FastAPI()
+
+
+class CommonHeaders(BaseModel):
+    host: str
+    save_data: bool
+    if_modified_since: str | None = None
+    traceparent: str | None = None
+    x_tag: list[str] = []
+
+
+@app.get("/items/")
+async def read_items(headers: Annotated[CommonHeaders, Header()]):
+    return headers
+```
+
+Read the new docs: [Header Parameter Models](https://fastapi.tiangolo.com/tutorial/header-param-models/).
+
+#### `Cookie` Parameter Models
+
+Use Pydantic models for `Cookie` parameters:
+
+```python
+from typing import Annotated
+
+from fastapi import Cookie, FastAPI
+from pydantic import BaseModel
+
+app = FastAPI()
+
+
+class Cookies(BaseModel):
+    session_id: str
+    fatebook_tracker: str | None = None
+    googall_tracker: str | None = None
+
+
+@app.get("/items/")
+async def read_items(cookies: Annotated[Cookies, Cookie()]):
+    return cookies
+```
+
+Read the new docs: [Cookie Parameter Models](https://fastapi.tiangolo.com/tutorial/cookie-param-models/).
+
+#### Forbid Extra Query (Cookie, Header) Parameters
+
+Use Pydantic models to restrict extra values for `Query` parameters (also applies to `Header` and `Cookie` parameters).
+
+To achieve it, use Pydantic's `model_config = {"extra": "forbid"}`:
+
+```python
+from typing import Annotated, Literal
+
+from fastapi import FastAPI, Query
+from pydantic import BaseModel, Field
+
+app = FastAPI()
+
+
+class FilterParams(BaseModel):
+    model_config = {"extra": "forbid"}
+
+    limit: int = Field(100, gt=0, le=100)
+    offset: int = Field(0, ge=0)
+    order_by: Literal["created_at", "updated_at"] = "created_at"
+    tags: list[str] = []
+
+
+@app.get("/items/")
+async def read_items(filter_query: Annotated[FilterParams, Query()]):
+    return filter_query
+```
+
+This applies to `Query`, `Header`, and `Cookie` parameters, read the new docs:
+
+* [Forbid Extra Query Parameters](https://fastapi.tiangolo.com/tutorial/query-param-models/#forbid-extra-query-parameters)
+* [Forbid Extra Headers](https://fastapi.tiangolo.com/tutorial/header-param-models/#forbid-extra-headers)
+* [Forbid Extra Cookies](https://fastapi.tiangolo.com/tutorial/cookie-param-models/#forbid-extra-cookies)
+
+### Features
+
+* ✨ Add support for Pydantic models for parameters using `Query`, `Cookie`, `Header`. PR [#12199](https://github.com/fastapi/fastapi/pull/12199) by [@tiangolo](https://github.com/tiangolo).
+
 ### Translations
 
 * 🌐 Add Portuguese translation for `docs/pt/docs/advanced/security/http-basic-auth.md`. PR [#12195](https://github.com/fastapi/fastapi/pull/12195) by [@ceb10n](https://github.com/ceb10n).
@@ -368,7 +511,7 @@ Discussed here: [#11522](https://github.com/fastapi/fastapi/pull/11522) and here
 ### Upgrades
 
 * ➖ Remove `orjson` and `ujson` from default dependencies. PR [#11842](https://github.com/tiangolo/fastapi/pull/11842) by [@tiangolo](https://github.com/tiangolo).
-    * These dependencies are still installed when you install with `pip install "fastapi[all]"`. But they not included in `pip install fastapi`.
+    * These dependencies are still installed when you install with `pip install "fastapi[all]"`. But they are not included in `pip install fastapi`.
 * 📝 Restored Swagger-UI links to use the latest version possible. PR [#11459](https://github.com/tiangolo/fastapi/pull/11459) by [@UltimateLobster](https://github.com/UltimateLobster).
 
 ### Docs
