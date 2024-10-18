@@ -9,12 +9,24 @@ hide:
 
 ### Translations
 
+* 🌐 Add Traditional Chinese translation for `docs/zh-hant/docs/fastapi-cli.md`. PR [#12444](https://github.com/fastapi/fastapi/pull/12444) by [@codingjenny](https://github.com/codingjenny).
+* 🌐 Add Traditional Chinese translation for `docs/zh-hant/docs/deployment/index.md`. PR [#12439](https://github.com/fastapi/fastapi/pull/12439) by [@codingjenny](https://github.com/codingjenny).
+* 🌐 Add Portuguese translation for `docs/pt/docs/how-to/testing-database.md`. PR [#12472](https://github.com/fastapi/fastapi/pull/12472) by [@GuilhermeRameh](https://github.com/GuilhermeRameh).
+* 🌐 Add Portuguese translation for `docs/pt/docs/how-to/custom-docs-ui-assets.md`. PR [#12473](https://github.com/fastapi/fastapi/pull/12473) by [@devluisrodrigues](https://github.com/devluisrodrigues).
+* 🌐 Add Portuguese translation for `docs/pt/docs/advanced/response-headers.md`. PR [#12458](https://github.com/fastapi/fastapi/pull/12458) by [@leonardopaloschi](https://github.com/leonardopaloschi).
+* 🌐 Add Traditional Chinese translation for `docs/zh-hant/docs/deployment/cloud.md`. PR [#12440](https://github.com/fastapi/fastapi/pull/12440) by [@codingjenny](https://github.com/codingjenny).
+* 🌐 Update Portuguese translation for `docs/pt/docs/python-types.md`. PR [#12428](https://github.com/fastapi/fastapi/pull/12428) by [@ceb10n](https://github.com/ceb10n).
+* 🌐 Add Russian translation for `docs/ru/docs/environment-variables.md`. PR [#12436](https://github.com/fastapi/fastapi/pull/12436) by [@wisderfin](https://github.com/wisderfin).
+* 🌐 Add Traditional Chinese translation for `docs/zh-hant/docs/resources/index.md`. PR [#12443](https://github.com/fastapi/fastapi/pull/12443) by [@codingjenny](https://github.com/codingjenny).
+* 🌐 Add Traditional Chinese translation for `docs/zh-hant/docs/about/index.md`. PR [#12438](https://github.com/fastapi/fastapi/pull/12438) by [@codingjenny](https://github.com/codingjenny).
+* 🌐 Add Portuguese translation for `docs/pt/docs/tutorial/query-param-models.md`. PR [#12414](https://github.com/fastapi/fastapi/pull/12414) by [@ceb10n](https://github.com/ceb10n).
 * 🌐 Remove Portuguese translation for `docs/pt/docs/deployment.md`. PR [#12427](https://github.com/fastapi/fastapi/pull/12427) by [@ceb10n](https://github.com/ceb10n).
 *  🌐 Add Portuguese translation for `docs/pt/docs/tutorial/body-updates.md`. PR [#12381](https://github.com/fastapi/fastapi/pull/12381) by [@andersonrocha0](https://github.com/andersonrocha0).
 * 🌐 Add Portuguese translation for `docs/pt/docs/advanced/response-cookies.md`. PR [#12417](https://github.com/fastapi/fastapi/pull/12417) by [@Paulofalcao2002](https://github.com/Paulofalcao2002).
 
 ### Internal
 
+* 👷 Update issue manager workflow . PR [#12457](https://github.com/fastapi/fastapi/pull/12457) by [@alejsdev](https://github.com/alejsdev).
 * 🔧 Update team, include YuriiMotov 🚀. PR [#12453](https://github.com/fastapi/fastapi/pull/12453) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Refactor label-approved, make it an internal script instead of an external GitHub Action. PR [#12280](https://github.com/fastapi/fastapi/pull/12280) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Fix smokeshow, checkout files on CI. PR [#12434](https://github.com/fastapi/fastapi/pull/12434) by [@tiangolo](https://github.com/tiangolo).
