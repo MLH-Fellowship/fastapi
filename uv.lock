@@ -1247,7 +1247,7 @@ dev = [
     { name = "strawberry-graphql", specifier = ">=0.200.0,<1.0.0" },
     { name = "typer", specifier = "==0.21.1" },
     { name = "types-orjson", specifier = "==3.6.2" },
-    { name = "types-ujson", specifier = "==5.10.0.20240515" },
+    { name = "types-ujson", specifier = "==5.10.0.20250822" },
 ]
 docs = [
     { name = "black", specifier = "==25.1.0" },
@@ -1298,7 +1298,7 @@ tests = [
     { name = "sqlmodel", specifier = "==0.0.31" },
     { name = "strawberry-graphql", specifier = ">=0.200.0,<1.0.0" },
     { name = "types-orjson", specifier = "==3.6.2" },
-    { name = "types-ujson", specifier = "==5.10.0.20240515" },
+    { name = "types-ujson", specifier = "==5.10.0.20250822" },
 ]
 translations = [
     { name = "gitpython", specifier = "==3.1.46" },
@@ -4823,11 +4823,11 @@ wheels = [
 
 [[package]]
 name = "types-ujson"
-version = "5.10.0.20240515"
+version = "5.10.0.20250822"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/12/49/abb4bcb9f2258f785edbf236b517c3e7ba8a503a8cbce6b5895930586cc0/types-ujson-5.10.0.20240515.tar.gz", hash = "sha256:ceae7127f0dafe4af5dd0ecf98ee13e9d75951ef963b5c5a9b7ea92e0d71f0d7", size = 3571, upload-time = "2024-05-15T02:24:43.704Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/5c/bd/d372d44534f84864a96c19a7059d9b4d29db8541828b8b9dc3040f7a46d0/types_ujson-5.10.0.20250822.tar.gz", hash = "sha256:0a795558e1f78532373cf3f03f35b1f08bc60d52d924187b97995ee3597ba006", size = 8437, upload-time = "2025-08-22T03:02:19.433Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/3f/1f/9d018cee3d09ab44a5211f0b5ed9b0422ad9a8c226bf3967f5884498d8f0/types_ujson-5.10.0.20240515-py3-none-any.whl", hash = "sha256:02bafc36b3a93d2511757a64ff88bd505e0a57fba08183a9150fbcfcb2015310", size = 2757, upload-time = "2024-05-15T02:24:42.315Z" },
+    { url = "https://files.pythonhosted.org/packages/d7/f2/d812543c350674d8b3f6e17c8922248ee3bb752c2a76f64beb8c538b40cf/types_ujson-5.10.0.20250822-py3-none-any.whl", hash = "sha256:3e9e73a6dc62ccc03449d9ac2c580cd1b7a8e4873220db498f7dd056754be080", size = 7657, upload-time = "2025-08-22T03:02:18.699Z" },
 ]
 
 [[package]]
